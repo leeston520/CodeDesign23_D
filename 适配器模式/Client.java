@@ -26,13 +26,14 @@ package chatGPT.适配器模式;
 // 客户端代码
 public class Client {
     public static void main(String[] args) {
-        Adaptee adaptee = new Adaptee() {
+        // 具体适配器
+        Adaptee adaptorImpl = new Adaptee() {
             public void specificRequest() {
                 System.out.println("specific request");
             }
         };
-
-        Target target = new Adapter(adaptee);
+        // 传入什么适配器,就输出什么内容
+        Target target = new Adapter(adaptorImpl);
         target.request();
     }
 }
